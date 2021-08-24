@@ -67,7 +67,7 @@ awk '/Invalid user/ {invalidUser[$0]++}
 		printf(" Invalid user attempts: %d\n", count)
 		}' $fn
 		
-awk '/Failed/ {print $13}' $fn | sort | uniq -c | sort -n | tail -n 1 | awk '{print "\n IP address", $2, "attacked the most for a total of", $1, "times!"}'
+awk '/Failed/ {print $(NF-3)}' $fn | sort | uniq -c | sort -n | tail -n 1 | awk '{print "\n IP address", $2, "attacked the most for a total of", $1, "times!"}'
 
 ip=$(awk '/Failed/ {print $13}' $fn | sort | uniq -c | sort -n | tail -n 1 | awk '{print $2}')
 echo
