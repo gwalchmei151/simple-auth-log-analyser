@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Ensure that you are in the same directory as the file"
+echo "Ensure that you are in the same directory as the target file"
 echo "Enter filename including extension (e.g auth.log)"
 read fn
 
