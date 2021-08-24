@@ -73,4 +73,4 @@ ip=$(awk '/Failed/ {print $13}' $fn | sort | uniq -c | sort -n | tail -n 1 | awk
 echo
 echo -n " "$ip " is from "
 cc=$(whois $ip | awk 'tolower($1) ~/country/ {print $2}')
-curl -L -s https://datahub.io/core/country-list/r/0.csv | grep $cc
+curl -L -s https://datahub.io/core/country-list/r/0.csv | grep $cc | awk -F "," '{print $1}'
